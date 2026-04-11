@@ -9,6 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from datetime import datetime
+import uvicorn
 
 today = datetime.now().strftime("%B %d, %Y")
 
@@ -152,4 +153,9 @@ def chat(data:Query):
     reply = rag_pipeline(data.message)
     return {"reply":reply}
 
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
 
