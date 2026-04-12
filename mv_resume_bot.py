@@ -13,7 +13,7 @@ import uvicorn
 
 today = datetime.now().strftime("%B %d, %Y")
 
-
+print("Code Started ... m ... v")
 
 load_dotenv()
 gen_api_key = os.getenv("gen_api_key")
